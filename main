@@ -1,0 +1,66 @@
+import time
+import random
+
+
+Name = input("Enter the Player Name= ")
+
+print("hey!",Name,"\n Welcome to Kbc aka Kon Banega Corerpati.\n before starting this game let me guide through the game.\n there will be 16 questions all to win jackpot of 7 Crores" )
+
+time.sleep(5)
+
+level = (1000,2000,3000,5000,10000,20000,40000,80000,160000,320000,640000,1250000,2500000,5000000,10000000,70000000)
+
+
+ques = ["Who is Current Railway Minister of India ?", "Which god is also known as 'Gauri Nandan'?", "What does not grow on tree according to a popular Hindi saying?", "Which city is known as Pink City in India?", "Who wrote India's National Anthem?", "How many religions are there in India?", "When is the National Hindi Diwas celebrated?", "How many states are there in India?", "Where in India Gate located?", "Who wrote Vande Mataram?", "Which one of the following places is famous for the Great Vishnu Temple?", "The largest Buddhist Monastery in India is located at?", "Which of the following musical instruments is NOT of foreign origin?", "Who among the following was killed during 'Operation Bluestar' of 1984?", "Which former Indian President died as a result of a road accident?", "Who is the founder of the political party Dravida Munnetra Kazhagam (DMK)?"]
+
+
+optn= {
+    0 : ["Mamta Banarjee","Ram Vilash","Ashwini Vaishnaw","Piyush Goyal"],
+    1 : ["Agni","Indra","Hanuman","Ganesha"],
+    2 : ["Money","Flowers","Leaves","Fruits"],
+    3 : ["Banglor","Maysore","Jaipur","Kochi"],
+    4 : ["Rabindranath Tagore","Lal Bahadur Shastri","Chetan Bhagat","RK Narayan"],
+    5 : ["6","7","8","9"],
+    6 : ["13 September","14 September","14 July","15 August"],
+    7 : ["28","29","31","26"],
+    8 : ["Agra","Punjab","Mumbai","New Delhi"],
+    9 : ["Sarat Chandra Chattopadhay","Rabindranath Tagore","Bankim Chandra Chatterjee","Ishwar Chandra Vidasagar"],
+    10 : ["Bordubar, Indonesia","Bamiyan, Afghanistan","Panja Sahib, Pakistan","Ankorvat, Cambodia"],
+    11 : ["Sarnath, Uttar Pradesh","Tawang, Arunachal Pradesh","Dharamshala, Himachal Pradesh","Gangtok, Sikkim"],
+    12 : ["Table","Flute","Sitar","Violin"],
+    13 : ["Baba Santa Singh","Haji Mastan","Jarnail Singh Bhindrawale","Homi Jehangir Bhabha"],
+    14 : ["Rajendra Prasad","Faqrundin Ali Ahmed","Giani Zail Singh","R.Venkatraman"],
+    15 : ["C.N.Annadurai","M.Karunanidhi","M.G.Ramchandran","Jayalalitha"]
+           }
+
+
+crct = ("Ashwini Vaishnaw","Ganesha","Money","Jaipur","Rabindranath Tagore","6","14 September","28","New Delhi","Bankim Chandra Chatterjee","Ankrovat, Cambodia","Tawang, Arunachal Pradesh","Flute","Jarnail Singh Bhindrawale","Giani Zail Singh","C.N.Annadurai")
+
+i= 0
+
+while(i < 16):
+    print("your question is: \n", ques[i], "for", level[i], "Rs")
+    time.sleep(10)
+    options = optn[i]
+    random.shuffle(options)
+    a, b, c, d = options
+    print("Your options are: \n","A",a,"B",b,"\n","C",c,"D",d)
+    
+    slct= input("Enter your selection: ")
+    choice = globals()[slct]
+    if choice == crct[i]:
+        print("Your Answer is correct you won", level[i])    
+        i+=1
+    else:
+        print("This is Wrong Answer")
+        if i<=4:
+            print("Unfortunately you didn't win any thing")
+        elif i<=9:
+            print("Congratulation's You have won 10,000 Rs")
+        elif i<=14:
+            print("Congratulation's You have won 3,20,000 Rs")
+        else:
+            print("You didn't win the jackpot answer, but you won 1,00,00,000 Rs")    
+        break
+    time.sleep(5)
+    
